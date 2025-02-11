@@ -5,8 +5,10 @@ let addNameBtn = document.getElementById("addNameBtn");
 let getRandomNameBtn = document.getElementById("getRandomNameBtn");
 let randomNameText = document.getElementById("randomNameText");
 
-let addAmountPerGroupInput = document.getElementById("addAmountPerGroupInput");
+let addAmountGroupInput = document.getElementById("addAmountGroupInput");
 let getRandomGroupsBtn = document.getElementById("getRandomGroupsBtn");
+let randomGroupText = document.getElementById("randomGroupText");
+
 let nameList = document.getElementById("nameList");
 
 let nameAdd = '';
@@ -42,6 +44,7 @@ GetNames();
 addNameBtn.addEventListener('click', () => {
     randomNameText.innerText = '';
     randomNameText.className = 'p-2 m-7';
+
     if(nameInput.value != ''){
         nameAdd = nameInput.value;
         saveToStorage(nameAdd);
@@ -49,9 +52,6 @@ addNameBtn.addEventListener('click', () => {
 
         GetNames();
         nameInput.value = '';
-    }else{
-        nameList.innerHTML = '';
-        GetNames();
     }
     
 })
@@ -72,5 +72,22 @@ getRandomNameBtn.addEventListener('click', () => {
 })
 
 getRandomGroupsBtn.addEventListener('click', () => {
+    if(addAmountGroupInput.value != ''){
+        let rngName = getFromStorage();
+        let amountofGroups = addAmountGroupInput.value;
+        Number(amountofGroups);
+
+        if(rngName.length != 0){
+            let randomNumber = Math.floor(Math.random() * rngName.length);
+
+            let groupSize = rngName.length / amountofGroups;
+            
+            console.log(Math.floor(groupSize));            
+    
+        }else{
+            randomGroupText.innerText = 'Sorry there are no names to randomize :( You should probably add some';
+            randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
+        }
+    }
     
 })

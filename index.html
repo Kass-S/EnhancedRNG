@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="./src/output.css">
 </head>
 
-<body class="bg-slate-500">
+<body class=" bg-slate-400">
 
-    <div class="mt-10">
+    <div class="mt-10 mx-5">
         <input id="nameInput" placeholder="Name Here" type="text" class="bg-slate-300 rounded-lg p-2 m-2">
-        <button id="addNameBtn" class="bg-sky-500 p-2 rounded-lg m-2">Add Name</button>
-        <button id="getRandomNameBtn" class="bg-sky-500 p-2 rounded-lg m-2">Get Random Name</button> 
+        <button id="addNameBtn" class="bg-sky-500 p-2 rounded-lg m-2 cursor-pointer">Add Name</button>
+        <button id="getRandomNameBtn" class="bg-sky-500 p-2 rounded-lg m-2 cursor-pointer">Get Random Name</button> 
         <p id="randomNameText" class="p-2 m-7"></p>
     </div>
 
-    <div>
-        <input id="addAmountPerGroupInput" placeholder="People per Group" type="text" class="bg-slate-300 rounded-lg p-2 m-2">
-        <button id="getRandomGroupsBtn" class="bg-sky-500 p-2 rounded-lg m-2">Get Random Group</button>
+    <div class="mx-5">
+        <input id="addAmountGroupInput" placeholder="Amount of Groups" type="number" class="bg-slate-300 rounded-lg p-2 m-2">
+        <button id="getRandomGroupsBtn" class="bg-sky-500 p-2 rounded-lg m-2 cursor-pointer">Get Random Group</button>
+        <p id="randomGroupText" class="p-2 m-7"></p>
     </div>
 
-    <div class="m-5 flex justify-center items-center border-t-2">
+    <div class="m-5 mx-20 flex justify-center items-center border-t-2 rounded-lg ">
         <p id="nameList"></p>
     </div>
  
