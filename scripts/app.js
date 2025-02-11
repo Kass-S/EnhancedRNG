@@ -24,7 +24,7 @@ const GetNames = () => {
 
         let removeBtn = document.createElement('i');
         removeBtn.type = 'button';
-        removeBtn.className = 'bg-red-700 rounded-lg p-2 m-2 cursor-pointer flex justify-between';
+        removeBtn.className = 'bg-red-700 rounded-lg p-2 m-2 cursor-pointer flex justify-between hover:bg-red-800';
         removeBtn.innerText = 'delete';
 
         removeBtn.addEventListener('click', () => {
@@ -71,23 +71,33 @@ getRandomNameBtn.addEventListener('click', () => {
     
 })
 
-getRandomGroupsBtn.addEventListener('click', () => {
-    if(addAmountGroupInput.value != ''){
-        let rngName = getFromStorage();
-        let amountofGroups = addAmountGroupInput.value;
-        Number(amountofGroups);
+getRandomGroupsBtn.addEventListener('click', () => {   
+    let rngName = getFromStorage();
+    let amountofGroups = addAmountGroupInput.value;
+    Number(amountofGroups);
 
-        if(rngName.length != 0){
-            let randomNumber = Math.floor(Math.random() * rngName.length);
+    if(rngName.length != 0 && addAmountGroupInput.value != '' && amountofGroups < rngName.length){
+        let randomNumber = Math.floor(Math.random() * rngName.length);
 
-            let groupSize = rngName.length / amountofGroups;
+        let groupSize = rngName.length / amountofGroups;
             
-            console.log(Math.floor(groupSize));            
-    
-        }else{
-            randomGroupText.innerText = 'Sorry there are no names to randomize :( You should probably add some';
-            randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
-        }
+        console.log(Math.floor(groupSize));
+
+        //amount of groups = input
+        //total amout of people = rngName.length
+        //number of people in each group = groupSize
+
+        //i have to find a way of putting people in each group
+        //the same person connot be in mulitple groups
+        //groups connot have one person
+
+
+
+        randomGroupText.innerText = 'Incomplete';
+        randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-around items-center';
+    }else{
+        randomGroupText.innerText = 'Sorry. Please make sure there are added people, entered something in the input field, and that the number input was not higher than the amount of people :( ';
+        randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
     }
     
 })
