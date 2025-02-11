@@ -5,7 +5,7 @@ let addNameBtn = document.getElementById("addNameBtn");
 let getRandomNameBtn = document.getElementById("getRandomNameBtn");
 let randomNameText = document.getElementById("randomNameText");
 
-let addGroupSizeInput = document.getElementById("addGroupSizeInput");
+let addAmountPerGroupInput = document.getElementById("addAmountPerGroupInput");
 let getRandomGroupsBtn = document.getElementById("getRandomGroupsBtn");
 let nameList = document.getElementById("nameList");
 
@@ -40,6 +40,8 @@ const GetNames = () => {
 GetNames();
 
 addNameBtn.addEventListener('click', () => {
+    randomNameText.innerText = '';
+    randomNameText.className = 'p-2 m-7';
     if(nameInput.value != ''){
         nameAdd = nameInput.value;
         saveToStorage(nameAdd);
@@ -56,10 +58,19 @@ addNameBtn.addEventListener('click', () => {
 
 getRandomNameBtn.addEventListener('click', () => {
     let rngName = getFromStorage();
-    let randomNumber  = Math.floor(Math.random() * rngName.length);
 
-    randomNameText.innerText = rngName[randomNumber];
-    randomNameText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
+    if(rngName.length != 0){
+        let randomNumber  = Math.floor(Math.random() * rngName.length);
+
+        randomNameText.innerText = rngName[randomNumber];
+        randomNameText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
+    }else{
+        randomNameText.innerText = 'Sorry there are no names to randomize :( You should probably add some';
+        randomNameText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
+    }
+    
 })
 
-
+getRandomGroupsBtn.addEventListener('click', () => {
+    
+})
