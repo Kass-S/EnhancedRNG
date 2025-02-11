@@ -75,21 +75,26 @@ getRandomGroupsBtn.addEventListener('click', () => {
     let rngName = getFromStorage();
     let amountofGroups = addAmountGroupInput.value;
     Number(amountofGroups);
+    let randomLength = rngName.length;
 
     if(rngName.length != 0 && addAmountGroupInput.value != '' && amountofGroups < rngName.length){
-        let randomNumber = Math.floor(Math.random() * rngName.length);
 
-        let groupSize = rngName.length / amountofGroups;
+        rngName.sort(() => Math.random() - 0.5);
+
+        let groupSize = randomLength / amountofGroups;
             
-        console.log(Math.floor(groupSize));
+        console.log(Math.ceil(groupSize));
 
         //amount of groups = input
-        //total amout of people = rngName.length
+        //total amout of people = randomLength
         //number of people in each group = groupSize
 
         //i have to find a way of putting people in each group
         //the same person connot be in mulitple groups
         //groups connot have one person
+
+        //find a way to put people in separate groups
+        let groupArr = [];
 
 
 
