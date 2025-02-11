@@ -10,21 +10,10 @@ let nameList = document.getElementById("nameList");
 
 let nameAdd = '';
 
-addNameBtn.addEventListener('click', () => {
-    nameAdd = nameInput.value;
-    saveToStorage(nameAdd);
-    nameList.innerHTML = '';
-
-    GetNames();
-    nameInput.value = '';
-})
-
-
 const GetNames = () => {
     let storedName = getFromStorage();
 
     storedName.map(givenname => {
-        console.log(givenname);
 
         let p = document.createElement('p');
         p.className = "m-4";
@@ -47,3 +36,28 @@ const GetNames = () => {
     })
 
 }
+GetNames();
+
+addNameBtn.addEventListener('click', () => {
+    if(nameInput.value != ''){
+        nameAdd = nameInput.value;
+        saveToStorage(nameAdd);
+        nameList.innerHTML = '';
+
+        GetNames();
+        nameInput.value = '';
+    }else{
+        nameList.innerHTML = '';
+        GetNames();
+    }
+    
+})
+
+getRandomNameBtn.addEventListener('click', () => {
+    let rngName = getFromStorage();
+    let randomNumber  = Math.floor(Math.random() * rngName.length);
+
+    alert(rngName[randomNumber]);
+})
+
+
