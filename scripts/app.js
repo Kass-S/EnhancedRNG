@@ -2,7 +2,10 @@ import { saveToStorage, getFromStorage, removeFromStorage } from "./localStorage
 
 let nameInput = document.getElementById("nameInput");
 let addNameBtn = document.getElementById("addNameBtn");
+let getRandomNameBtn = document.getElementById("getRandomNameBtn");
 
+let addGroupSizeInput = document.getElementById("addGroupSizeInput");
+let getRandomGroupsBtn = document.getElementById("getRandomGroupsBtn");
 let nameList = document.getElementById("nameList");
 
 let nameAdd = '';
@@ -29,7 +32,7 @@ const GetNames = () => {
 
         let removeBtn = document.createElement('i');
         removeBtn.type = 'button';
-        removeBtn.className = 'bg-red-700 rounded-lg p-2 m-2 curser-pointer';
+        removeBtn.className = 'bg-red-700 rounded-lg p-2 m-2 cursor-pointer';
         removeBtn.innerText = 'delete';
 
         removeBtn.addEventListener('click', () => {
