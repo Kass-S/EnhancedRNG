@@ -10,6 +10,8 @@ let nameAdd = '';
 addNameBtn.addEventListener('click', () => {
     nameAdd = nameInput.value;
     saveToStorage(nameAdd);
+    nameList.innerHTML = '';
+
     GetNames();
     nameInput.value = '';
 })
@@ -22,12 +24,12 @@ const GetNames = () => {
         console.log(givenname);
 
         let p = document.createElement('p');
-        p.className = "";
+        p.className = "m-4";
         p.innerText = `${givenname}`;
 
         let removeBtn = document.createElement('i');
         removeBtn.type = 'button';
-        removeBtn.className = 'bg-red-800 m-2';
+        removeBtn.className = 'bg-red-700 rounded-lg p-2 m-2 curser-pointer';
         removeBtn.innerText = 'delete';
 
         removeBtn.addEventListener('click', () => {
