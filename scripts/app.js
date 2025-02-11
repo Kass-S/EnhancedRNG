@@ -79,27 +79,36 @@ getRandomGroupsBtn.addEventListener('click', () => {
 
     if(rngName.length != 0 && addAmountGroupInput.value != '' && amountofGroups < rngName.length){
 
-        rngName.sort(() => Math.random() - 0.5);
+        let shuffledNames = rngName.sort(() => Math.random() - 0.5);
 
         let groupSize = randomLength / amountofGroups;
             
         console.log(Math.ceil(groupSize));
 
-        //amount of groups = input
-        //total amout of people = randomLength
-        //number of people in each group = groupSize
+        //need to make groups do not have one person
 
-        //i have to find a way of putting people in each group
-        //the same person connot be in mulitple groups
-        //groups connot have one person
-
-        //find a way to put people in separate groups
         let groupArr = [];
 
+        if(amountofGroups){
+            for(let i = 0; i < amountofGroups; i++){
+                groupArr[i] = [];
+            }
 
+            shuffledNames.forEach((name, index) => {
+                groupArr[index % amountofGroups].push(name);
+            })
+    
+            console.log(groupArr);
 
-        randomGroupText.innerText = 'Incomplete';
-        randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-around items-center';
+            groupArr.forEach((group, name) => {
+                let div = document.createElement('div');
+
+                div.innerText = `Group ${name + 1}: ${group.join(', ')}`;
+                randomGroupText.appendChild(div);
+                randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-around items-center';
+            })
+        }
+
     }else{
         randomGroupText.innerText = 'Sorry. Please make sure there are added people, entered something in the input field, and that the number input was not higher than the amount of people :( ';
         randomGroupText.className = 'bg-slate-300 rounded-lg p-2 m-4 flex justify-center items-center';
