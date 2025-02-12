@@ -85,10 +85,9 @@ getRandomGroupsBtn.addEventListener('click', () => {
             
         console.log(Math.ceil(groupSize));
 
-        //need to make groups do not have one person
-
         let groupArr = [];
 
+        //if is there for not duplicates
         if(amountofGroups){
             for(let i = 0; i < amountofGroups; i++){
                 groupArr[i] = [];
