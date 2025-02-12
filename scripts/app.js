@@ -81,13 +81,10 @@ getRandomGroupsBtn.addEventListener('click', () => {
 
         let shuffledNames = rngName.sort(() => Math.random() - 0.5);
 
-        let groupSize = randomLength / amountofGroups;
-            
-        console.log(Math.ceil(groupSize));
-
         let groupArr = [];
 
         //if is there for not duplicates
+        //groups of one still an issue
         if(amountofGroups){
             for(let i = 0; i < amountofGroups; i++){
                 groupArr[i] = [];
